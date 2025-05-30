@@ -1,13 +1,11 @@
-import { NavLink, Link } from "react-router";
+import { NavLink } from "react-router";
 
 export default function MainNav() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            MALE\FEMALE
-          </a>
+          <h3 className=" fw-bold p-2 ">MALE\FEMALE</h3>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,12 +25,12 @@ export default function MainNav() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="/female">
                   Female
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="/male">
                   Male
                 </NavLink>
               </li>
