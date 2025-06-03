@@ -5,6 +5,12 @@ import { NavLink, useParams } from "react-router";
 export default function PostDetail() {
   const { id: cakeId } = useParams();
   const [cake, setCake] = useState([]);
+  const changePageBefore = () => {
+    const cakeId = cakeId + 1;
+  };
+  const changePageAfter = () => {
+    const cakeId = cakeId - 1;
+  };
 
   useEffect(() => {
     axios.get(`http://localhost:3000/Posts/${cakeId}`).then((res) => {
@@ -33,7 +39,22 @@ export default function PostDetail() {
 
                 <p className="card-text fs-6 overflow-auto">{cake.content}</p>
               </div>
-
+              <div className="p-2 fs-5">
+                <NavLink
+                  className="p-5"
+                  onClick={changePageBefore}
+                  to={`http://localhost:5173/Posts/${cake.id - 1}`}
+                >
+                  {"<"}
+                </NavLink>
+                <NavLink
+                  className="p-5"
+                  onClick={changePageAfter}
+                  to={`http://localhost:5173/Posts/${cake.id + 1}`}
+                >
+                  {">"}
+                </NavLink>
+              </div>
               <NavLink className="btn btn-secondary" to={`/Posts`}>
                 Torna alla lista delle Torte
               </NavLink>
