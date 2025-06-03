@@ -6,10 +6,10 @@ export default function PostDetail() {
   const { id: cakeId } = useParams();
   const [cake, setCake] = useState([]);
   const changePageBefore = () => {
-    const cakeId = cakeId + 1;
+    const cakeId = cakeId ? cakeId + 1 : cakeId;
   };
   const changePageAfter = () => {
-    const cakeId = cakeId - 1;
+    const cakeId = cakeId ? cakeId - 1 : cakeId;
   };
 
   useEffect(() => {
@@ -33,11 +33,10 @@ export default function PostDetail() {
               <div className="card-body">
                 <h5 className="card-title">{cake.title}</h5>
                 <hr />
-                <small>Tags: {cake.tags}</small>
-
-                <hr />
-
                 <p className="card-text fs-6 overflow-auto">{cake.content}</p>
+                <hr />
+                <small>Tags: {cake.tags}</small>
+                <hr />
               </div>
               <div className="p-2 fs-5">
                 <NavLink
